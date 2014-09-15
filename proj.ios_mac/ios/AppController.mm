@@ -28,6 +28,10 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 
+#import "XcodeCallback.h"
+#import "coralsdk.h"
+#import <BattleWorkLibrary/FDBNApp.h>
+
 @implementation AppController
 
 #pragma mark -
@@ -72,6 +76,8 @@ static AppDelegate s_sharedApplication;
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden:true];
+    [FDBNApp  initEngine:window delegate:[XcodeCallback callToGameDelegete]];
+    
 
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLView::createWithEAGLView(eaglView);
@@ -138,5 +144,12 @@ static AppDelegate s_sharedApplication;
     [super dealloc];
 }
 
+-(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    return [FDBNApp handleOpenURL:url];
+}
+-(BOOL)application:(UIApplication *)application openURL:(NSURL *) url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{     return [FDBNApp handleOpenURL:url];
+}
 
 @end
