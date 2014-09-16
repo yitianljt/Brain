@@ -63,6 +63,7 @@
 		50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A017ECD613001EB2F8 /* Icon-29.png */; };
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
 		A903AA4D19C6D1C8007C2487 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A903AA4B19C6D1C8007C2487 /* GameManager.cpp */; };
+		A903AAA819C80D4E007C2487 /* WelcomeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A903AAA619C80D4E007C2487 /* WelcomeLayer.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -264,6 +265,8 @@
 		A903AA4B19C6D1C8007C2487 /* GameManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameManager.cpp; path = ../Classes/Node/GameManager.cpp; sourceTree = "<group>"; };
 		A903AA4C19C6D1C8007C2487 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameManager.h; path = ../Classes/Node/GameManager.h; sourceTree = "<group>"; };
 		A903AA5619C6D995007C2487 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = ../Classes/Node/GameConfig.h; sourceTree = "<group>"; };
+		A903AAA619C80D4E007C2487 /* WelcomeLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WelcomeLayer.cpp; path = ../Classes/Layer/WelcomeLayer.cpp; sourceTree = "<group>"; };
+		A903AAA719C80D4E007C2487 /* WelcomeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeLayer.h; path = ../Classes/Layer/WelcomeLayer.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -340,6 +343,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A903AAA519C80D3E007C2487 /* Layer */,
 				A903AA5319C6D80A007C2487 /* Node */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
@@ -476,6 +480,15 @@
 				A903AA5619C6D995007C2487 /* GameConfig.h */,
 			);
 			name = Node;
+			sourceTree = "<group>";
+		};
+		A903AAA519C80D3E007C2487 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				A903AAA619C80D4E007C2487 /* WelcomeLayer.cpp */,
+				A903AAA719C80D4E007C2487 /* WelcomeLayer.h */,
+			);
+			name = Layer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -685,6 +698,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				A903AA4D19C6D1C8007C2487 /* GameManager.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
+				A903AAA819C80D4E007C2487 /* WelcomeLayer.cpp in Sources */,
 				1AFAF8B716D35DE700DB1158 /* AppDelegate.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
@@ -782,6 +796,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "4BBAAD62-CB12-494A-A3BD-D61BC5330167";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -811,6 +826,7 @@
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
+				PROVISIONING_PROFILE = "4BBAAD62-CB12-494A-A3BD-D61BC5330167";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";

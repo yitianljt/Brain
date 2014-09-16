@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "GameConfig.h"
+
 
 class GameManager:public cocos2d::Ref
 {
@@ -18,6 +20,8 @@ public:
     GameManager();
     ~GameManager();
     static GameManager* getInstance();
+    void changeGameState(EGameState gs);
+    void changeScene(EGameScene gs);
     
 private:
     bool init();
