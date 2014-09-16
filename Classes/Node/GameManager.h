@@ -22,7 +22,7 @@ public:
     static GameManager* getInstance();
     void changeGameState(EGameState gs);
     void changeScene(EGameScene gs);
-    
+    void start();
 private:
     bool init();
 };

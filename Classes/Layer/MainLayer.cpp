@@ -8,6 +8,7 @@
 
 #include "MainLayer.h"
 #include "ComUtil.h"
+#include "MainBarLayer.h"
 
 USING_NS_CC;
 
@@ -17,9 +18,8 @@ bool MainLayer::init()
         return false;
     }
     
-    LayerColor* BottomBar = LayerColor::create();
-    
-    
+    MainBarLayer* bar = MainBarLayer::create();
+    addChild(bar);
     
     return true;
 }
@@ -27,10 +27,10 @@ bool MainLayer::init()
 
 void MainLayer::onEnter()
 {
-
+    Layer::onEnter();
 }
 
 void MainLayer::onExit()
 {
-    
+    Layer::onExit();
 }

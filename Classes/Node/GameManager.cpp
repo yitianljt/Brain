@@ -7,6 +7,7 @@
 //
 
 #include "GameManager.h"
+#include "MainLayer.h"
 
 
 USING_NS_CC;
@@ -37,6 +38,11 @@ GameManager* GameManager::getInstance()
     return s_SharedManager;
 }
 
+void GameManager::start()
+{
+    changeScene(EGameScene::WELCOME);
+}
+
 
 void GameManager::changeScene(EGameScene gs)
 {
@@ -60,7 +66,15 @@ void GameManager::changeScene(EGameScene gs)
         }
         case EGameScene::WELCOME:
         {
-
+            MainLayer* layer = MainLayer::create();
+            scene->addChild(layer);
+            if (!Director::getInstance()->getRunningScene()) {
+                Director::getInstance()->runWithScene(scene);
+            }
+            else
+            {
+                Director::getInstance()->replaceScene(scene);
+            }
             break;
         }
         default:
