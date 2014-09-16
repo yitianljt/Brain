@@ -64,6 +64,8 @@
 		50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF62A117ECD613001EB2F8 /* Icon-50.png */; };
 		A903AA4D19C6D1C8007C2487 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A903AA4B19C6D1C8007C2487 /* GameManager.cpp */; };
 		A903AAA819C80D4E007C2487 /* WelcomeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A903AAA619C80D4E007C2487 /* WelcomeLayer.cpp */; };
+		A903AAAB19C81E69007C2487 /* MainLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A903AAA919C81E69007C2487 /* MainLayer.cpp */; };
+		A903AAB319C82365007C2487 /* ComUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A903AAB119C82365007C2487 /* ComUtil.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -267,6 +269,10 @@
 		A903AA5619C6D995007C2487 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GameConfig.h; path = ../Classes/Node/GameConfig.h; sourceTree = "<group>"; };
 		A903AAA619C80D4E007C2487 /* WelcomeLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WelcomeLayer.cpp; path = ../Classes/Layer/WelcomeLayer.cpp; sourceTree = "<group>"; };
 		A903AAA719C80D4E007C2487 /* WelcomeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WelcomeLayer.h; path = ../Classes/Layer/WelcomeLayer.h; sourceTree = "<group>"; };
+		A903AAA919C81E69007C2487 /* MainLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MainLayer.cpp; path = ../Classes/Layer/MainLayer.cpp; sourceTree = "<group>"; };
+		A903AAAA19C81E69007C2487 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainLayer.h; path = ../Classes/Layer/MainLayer.h; sourceTree = "<group>"; };
+		A903AAB119C82365007C2487 /* ComUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ComUtil.cpp; path = ../Classes/Util/ComUtil.cpp; sourceTree = "<group>"; };
+		A903AAB219C82365007C2487 /* ComUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ComUtil.h; path = ../Classes/Util/ComUtil.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -343,6 +349,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A903AAAE19C822BC007C2487 /* Util */,
 				A903AAA519C80D3E007C2487 /* Layer */,
 				A903AA5319C6D80A007C2487 /* Node */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
@@ -487,8 +494,19 @@
 			children = (
 				A903AAA619C80D4E007C2487 /* WelcomeLayer.cpp */,
 				A903AAA719C80D4E007C2487 /* WelcomeLayer.h */,
+				A903AAA919C81E69007C2487 /* MainLayer.cpp */,
+				A903AAAA19C81E69007C2487 /* MainLayer.h */,
 			);
 			name = Layer;
+			sourceTree = "<group>";
+		};
+		A903AAAE19C822BC007C2487 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A903AAB119C82365007C2487 /* ComUtil.cpp */,
+				A903AAB219C82365007C2487 /* ComUtil.h */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -695,6 +713,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A903AAB319C82365007C2487 /* ComUtil.cpp in Sources */,
+				A903AAAB19C81E69007C2487 /* MainLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				A903AA4D19C6D1C8007C2487 /* GameManager.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
