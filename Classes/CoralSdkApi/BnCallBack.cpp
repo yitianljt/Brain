@@ -1,5 +1,6 @@
 #include "BnCallBack.h"
 #include "BnInterface.h"
+#include "GameManager.h"
 
 
 BnCallBack::BnCallBack()
@@ -22,14 +23,13 @@ void BnCallBack::BnGameUserSelectedNotification(CCArray *userlist)
 //退出登陆通知
 void BnCallBack::BnLogoutNotify()
 {
-    // BnHideSDK();//隐藏SDK
+     BnHideSDK();//隐藏SDK
      //退出登陆，返回到登陆界面
 }
 
 //音乐开关通知
 void BnCallBack::BnMusicTurnOffAndOn(bool isOn)
 {
-
 	 
 }
 
@@ -43,7 +43,18 @@ void BnCallBack::BnSoundTurnOffAndOn(bool isOn)
 void BnCallBack::BnLoginResult(int isLogin)
 {
 
-	 
+    if(isLogin==1)
+    {
+        CCLOG("login success");
+        if (GameManager::getInstance()->getLoginDelegate()) {
+            GameManager::getInstance()->getLoginDelegate()->loginSuccess();
+        }
+    }
+    else
+    {
+        CCLOG("login failed");
+    }
+
 }
 
 //游戏结束后返回按键回调

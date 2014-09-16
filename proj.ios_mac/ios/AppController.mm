@@ -76,8 +76,10 @@ static AppDelegate s_sharedApplication;
     [window makeKeyAndVisible];
 
     [[UIApplication sharedApplication] setStatusBarHidden:true];
-    [FDBNApp  initEngine:window delegate:[XcodeCallback callToGameDelegete]];
     
+    [FDBNApp initEngine:window delegate:[XcodeCallback callToGameDelegete]];//初始化SDK
+    BnSetConfig(eaglView); //游戏配置
+
 
     // IMPORTANT: Setting the GLView should be done after creating the RootViewController
     cocos2d::GLView *glview = cocos2d::GLView::createWithEAGLView(eaglView);
@@ -151,5 +153,4 @@ static AppDelegate s_sharedApplication;
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *) url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {     return [FDBNApp handleOpenURL:url];
 }
-
 @end

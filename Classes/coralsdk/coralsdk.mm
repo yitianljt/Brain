@@ -43,7 +43,7 @@ void BnSetConfig(void *__glView)
     //设置游戏按键穿透
     [FDBNApp setGameView:(UIView*)__glView];
     //设置屏幕方向(YES: 横屏。NO:竖屏)
-    [FDBNApp setScreenOrientation:NO];
+    [FDBNApp setScreenOrientation:YES];
     //设置是否有回放功能，NO：无回放，YES：有回放
     [FDBNApp setReplayStatus:NO];
     //设置SDK不显示金币

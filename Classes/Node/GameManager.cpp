@@ -7,6 +7,7 @@
 //
 
 #include "GameManager.h"
+#include "WelcomeLayer.h"
 
 USING_NS_CC;
 static GameManager* s_SharedManager = nullptr;
@@ -23,6 +24,8 @@ GameManager::~GameManager()
 
 bool GameManager::init()
 {
+    changeGameState(EGameState::NONE);
+    setLoginDelegate(nullptr);
     return true;
 }
 
@@ -38,7 +41,7 @@ GameManager* GameManager::getInstance()
 
 void GameManager::start()
 {
-    
+    changeGameState(EGameState::NONE);
 }
 
 void GameManager::changeGameState(EGameState state)
@@ -84,8 +87,12 @@ void GameManager::changeScene(EGameScene gs)
     switch (gs) {
         case EGameScene::WELCOME:
         {
-            break;
+            WelcomeLayer* layer = WelcomeLayer::create();
+            scene->addChild(layer);
 
+            Director::getInstance()->runWithScene(scene);
+            
+            break;
         }
             
         default:

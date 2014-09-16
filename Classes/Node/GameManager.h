@@ -13,6 +13,11 @@
 #include "cocos2d.h"
 #include "GameConfig.h"
 
+class ManagerLoginDelegate{
+public:
+    virtual void loginSuccess()=0;
+};
+
 
 class GameManager:public cocos2d::Ref
 {
@@ -21,10 +26,13 @@ public:
     ~GameManager();
     static GameManager* getInstance();
     void changeGameState(EGameState state);
+    void start();
+    
+    CC_SYNTHESIZE(ManagerLoginDelegate*, _loginDelegate, LoginDelegate);
+
 
 private:
     bool init();
-    void start();
     void changeScene(EGameScene scene);
 
 };

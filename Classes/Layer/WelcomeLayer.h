@@ -11,13 +11,18 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "GameManager.h"
 
-class WelcomeLayer:public cocos2d::Layer
+class WelcomeLayer:public cocos2d::Layer,
+                            ManagerLoginDelegate
 {
 public:
     CREATE_FUNC(WelcomeLayer);
+    void loginSuccess();
+
 private:
-    bool init();
+    virtual bool init();
+    virtual void onEnter();
 };
 
 #endif /* defined(__Brain__WelcomeLayer__) */
