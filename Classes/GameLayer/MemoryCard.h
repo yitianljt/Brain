@@ -11,4 +11,15 @@
 
 #include <iostream>
 
+#include "cocos2d.h"
+
+class MemoryCard:public cocos2d::Layer
+{
+public:
+    CREATE_FUNC(MemoryCard);
+    
+};
+
+
+
 #endif /* defined(__Brain__MemoryCard__) */

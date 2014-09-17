@@ -71,6 +71,7 @@
 		A903AABD19C83BE4007C2487 /* HomeLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A903AABB19C83BE4007C2487 /* HomeLayer.cpp */; };
 		A903AAC019C87158007C2487 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A903AABE19C87158007C2487 /* Player.cpp */; };
 		A9CF96D819C92C1300BA5951 /* MemoryCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9CF96D619C92C1200BA5951 /* MemoryCard.cpp */; };
+		A9CF96DF19C93C0500BA5951 /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9CF96DD19C93C0500BA5951 /* Card.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -287,6 +288,8 @@
 		A903AABF19C87158007C2487 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = ../Classes/Node/Player.h; sourceTree = "<group>"; };
 		A9CF96D619C92C1200BA5951 /* MemoryCard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MemoryCard.cpp; path = ../Classes/GameLayer/MemoryCard.cpp; sourceTree = "<group>"; };
 		A9CF96D719C92C1200BA5951 /* MemoryCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemoryCard.h; path = ../Classes/GameLayer/MemoryCard.h; sourceTree = "<group>"; };
+		A9CF96DD19C93C0500BA5951 /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Card.cpp; path = ../Classes/Node/Card.cpp; sourceTree = "<group>"; };
+		A9CF96DE19C93C0500BA5951 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = ../Classes/Node/Card.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -503,6 +506,8 @@
 				A903AA5619C6D995007C2487 /* GameConfig.h */,
 				A903AABE19C87158007C2487 /* Player.cpp */,
 				A903AABF19C87158007C2487 /* Player.h */,
+				A9CF96DD19C93C0500BA5951 /* Card.cpp */,
+				A9CF96DE19C93C0500BA5951 /* Card.h */,
 			);
 			name = Node;
 			sourceTree = "<group>";
@@ -758,6 +763,7 @@
 				A903AABD19C83BE4007C2487 /* HomeLayer.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				1AFAF8B816D35DE700DB1158 /* HelloWorldScene.cpp in Sources */,
+				A9CF96DF19C93C0500BA5951 /* Card.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

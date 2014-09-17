@@ -29,4 +29,13 @@ enum EGameScene
 	GAMEVIEW
 };
 
+enum MemCardType{
+    CIRCLE,
+    TRIANGLE,
+    SQUARE,
+    PENTAGON
+};
+
+
+
 #endif

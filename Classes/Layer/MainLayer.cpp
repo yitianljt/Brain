@@ -9,6 +9,7 @@
 #include "MainLayer.h"
 #include "ComUtil.h"
 #include "MainBarLayer.h"
+#include "Card.h"
 
 USING_NS_CC;
 
@@ -17,8 +18,12 @@ bool MainLayer::init()
     if (!Layer::init()) {
         return false;
     }
-    LayerColor* layerBg = LayerColor::create(Color4B(255,255,255,255), COMWinSize().width, COMWinSize().height);
+    LayerColor* layerBg = LayerColor::create(Color4B(100,0,0,255), COMWinSize().width, COMWinSize().height);
     addChild(layerBg);
+    
+    Card* card = Card::create(1);
+    card->setPosition(Point(10,20));
+    this->addChild(card);
     
 //    MainBarLayer* bar = MainBarLayer::create();
 //    addChild(bar);
