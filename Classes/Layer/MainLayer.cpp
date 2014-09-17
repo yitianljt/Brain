@@ -21,8 +21,9 @@ bool MainLayer::init()
     LayerColor* layerBg = LayerColor::create(Color4B(100,0,0,255), COMWinSize().width, COMWinSize().height);
     addChild(layerBg);
     
-    Card* card = Card::create(1);
-    card->setPosition(Point(10,20));
+    Card* card = Card::create(2);
+    card->setPosition(Point(100,202));
+    card->setScale(0.5);
     this->addChild(card);
     
 //    MainBarLayer* bar = MainBarLayer::create();

@@ -7,9 +7,9 @@
 //
 
 #include "Card.h"
-#include "ui/widgets/UIButton.h"
 
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 Card* Card::create(int type)
 {
@@ -30,23 +30,22 @@ Card* Card::create(int type)
 
 bool Card::init(int iType)
 {
+    if (!Node::init()) {
+        return false;
+    }
     _bCover = false;
-    _spBg = Sprite::create("image/btn_bg.png");
+    _spBg = Scale9Sprite::create("image/btn_bg.png");
     __String* str = __String::createWithFormat("image/dc_m_%d.png",iType);
-    _spType = Sprite::create(str->getCString());
-    _spBg->addChild(_spType);
+    _spType = Scale9Sprite::create(str->getCString());
     _spType->setColor(Color3B(31,195,190));
-    _spType->setPosition(Point(_spBg->getContentSize().width/2,_spBg->getContentSize().height/2));
+    _spType->setPosition(Point(_spBg->getPreferredSize().width/2,_spBg->getPreferredSize().height/2));
     
+    _button = ControlButton::create(_spBg);
+    _button->setPreferredSize(_spBg->getPreferredSize());
+    _button->addChild(_spType);
 
-    
-    
-    
-    MenuItemSprite* item = MenuItemSprite::create(_spBg, _spBg, [this](Ref*){
-        flipCard(_bCover);
-    });
-    _menu = Menu::create(item, NULL);
-    addChild(_menu);
+    _button->addTargetWithActionForControlEvents(this,cccontrol_selector(Card::clickButton),cocos2d::extension::Control::EventType::TOUCH_UP_INSIDE);
+    addChild(_button);
     
     return true;
 }
@@ -55,30 +54,48 @@ bool Card::init(int iType)
 void Card::flipCard(bool bCover)
 {
     if (_bCover) {
-        //auto call = [this](Ref* sender){
         CallFunc* callF = CallFunc::create([this]{
+            CCLOG("-111");
             _spBg->setColor(Color3B(255,255,255));
+            _spType->setVisible(true);
             _spType->setColor(Color3B(31,195,190));
-            //_menu->runAction(OrbitCamera::create(2.0f,1,0,90,180,0,0));
-            _menu->runAction(ScaleBy::create(0.5, -1, 1));
+            _button->runAction(ScaleTo::create(0.15, 1, 1));
         });
         
-        ScaleBy* scaleBy1 = ScaleBy::create(0.5, -1, 1);
-        _menu->runAction(Sequence::create(scaleBy1,callF,CallFunc::create([this]{_bCover=false;}),nullptr));
+        ScaleTo* scaleTo1 = ScaleTo::create(0.15, 0, 1);
+        _button->runAction(Sequence::create(scaleTo1,callF,CallFunc::create([this]{_bCover=false;}),nullptr));
     }
     else
     {
         CallFunc* callF = CallFunc::create([this]{
+            CCLOG("-1");
             _spBg->setColor(Color3B(31,195,190));
-            _spType->setColor(Color3B(31,195,190));
-            //_menu->runAction(OrbitCamera::create(2.0f,1,0,90,180,0,0));
-            _menu->runAction(ScaleBy::create(0.5, -1, 1));
+            _spType->setVisible(false);
+            _button->runAction(ScaleTo::create(0.15, 1, 1));
 
         });
         
-        ScaleBy* scaleBy1 = ScaleBy::create(0.5, -1, 1);
-        _menu->runAction(Sequence::create(scaleBy1,callF,CallFunc::create([this]{_bCover=false;}),nullptr));
+        ScaleTo* scaleTo1 = ScaleTo::create(0.15, 0, 1);
+        _button->runAction(Sequence::create(scaleTo1,callF,CallFunc::create([this]{_bCover=true;}),nullptr));
     }
     
     
 }
+
+void Card::clickButton(Ref* pSender, Control::EventType event)
+{
+    CCLOG("clickButton");
+    flipCard(_bCover);
+}
+
+
+void Card::onEnter()
+{
+    Node::onEnter();
+}
+
+void Card::onExit()
+{
+    Node::onExit();
+}
+
