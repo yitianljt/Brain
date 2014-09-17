@@ -17,7 +17,7 @@ bool MainBarLayer::init()
     if (!Layer::init()) {
         return false;
     }
-    LayerColor* layerBar = LayerColor::create(Color4B(200,200,200,200),COMWinSize().width,100);
+    LayerColor* layerBar = LayerColor::create(Color4B(200,200,200,255),COMWinSize().width,100);
     addChild(layerBar);
     
     Sprite* spMainNor = Sprite::create("image/icon_home.png");
