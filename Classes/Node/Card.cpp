@@ -106,22 +106,21 @@ void Card::turnFront(const std::function<void()>& func)
     if (!_bCover) {
         return;
     }
-    CallFunc* callF = CallFunc::create([this]{
+    CallFunc* callF = CallFunc::create([this,func]{
         _spBg->setColor(Color3B(255,255,255));
         _spType->setVisible(true);
         _spType->setColor(Color3B(31,195,190));
-        _button->runAction(ScaleTo::create(0.15, 1, 1));
+        _button->runAction(Sequence::create(ScaleTo::create(0.15, 1, 1),CallFunc::create([this]{_bCover=false;}),CallFunc::create(func),nullptr));
 
     });
     
     ScaleTo* scaleTo1 = ScaleTo::create(0.15, 0, 1);
-    _button->runAction(Sequence::create(scaleTo1,callF,CallFunc::create([this]{_bCover=false;}),
-                                        CallFunc::create(func),nullptr));
+    _button->runAction(Sequence::create(scaleTo1,callF,nullptr));
 }
 
 void Card::showOut(const std::function<void()>& func)
 {
-    this->runAction(Sequence::create(ScaleTo::create(0.3, 0.2), RemoveSelf::create(),NULL));
+    this->runAction(Sequence::create(EaseBackIn::create(ScaleTo::create(0.2, 0.2)), RemoveSelf::create(),NULL));
 }
 
 
