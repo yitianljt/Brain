@@ -24,9 +24,12 @@ public:
     virtual void onEnter();
     virtual void onExit();
     void turnBack();
-    void turnFront();
-    CC_SYNTHESIZE(int, _pos, Pos);
+    void turnFront(const std::function<void()>& func);
+    void showOut(const std::function<void()>& func);
+    CC_SYNTHESIZE(int, _type, Type);
     CC_SYNTHESIZE(bool,_enableClick,EnableClick);
+    CC_SYNTHESIZE(cocos2d::Ref*, _selectTarget, SelectTarget);
+    CC_SYNTHESIZE(cocos2d::SEL_CallFuncN, _selectSelector, SelectSelector);
 
     //    typedef void (Ref::*Handler)(Ref*, EventType);
 private:
@@ -38,6 +41,7 @@ private:
     cocos2d::Menu* _menu;
     cocos2d::extension::ControlButton* _button;
     bool _bCover;
+    
 };
 
 #endif /* defined(__Brain__Card__) */

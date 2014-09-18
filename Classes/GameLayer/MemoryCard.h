@@ -18,13 +18,19 @@ class MemoryCard:public cocos2d::Layer
 public:
     CREATE_FUNC(MemoryCard);
     virtual bool init();
+    virtual void onEnter();
+    virtual void onExit();
     
 private:
     void newRound();
     void click(cocos2d::Ref* pSender, cocos2d::extension::Control::EventType event);
     void setCardEnable(bool able);
+    void turnCards();
+    void clickCard(cocos2d::Ref* pSender);
     
     std::vector<Card*> *_vecCard;
+    std::vector<Card*> *_vecOpenCard;
+    cocos2d::extension::ControlButton* _btnStart;
     int  _level;
     
 };
