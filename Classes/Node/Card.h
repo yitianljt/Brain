@@ -23,6 +23,7 @@ public:
     virtual bool init(int type);
     virtual void onEnter();
     virtual void onExit();
+    CC_SYNTHESIZE(int, _pos, Pos);
 
     //    typedef void (Ref::*Handler)(Ref*, EventType);
 private:

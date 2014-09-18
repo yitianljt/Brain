@@ -10,13 +10,20 @@
 #define __Brain__MemoryCard__
 
 #include <iostream>
-
+#include "Card.h"
 #include "cocos2d.h"
 
 class MemoryCard:public cocos2d::Layer
 {
 public:
     CREATE_FUNC(MemoryCard);
+    virtual bool init();
+    
+private:
+    void newRound();
+    
+    std::vector<Card*> *_vecCard;
+    int  _level;
     
 };
 

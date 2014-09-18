@@ -10,6 +10,7 @@
 #define __Brain__MainLayer__
 
 #include <iostream>
+#include "MemoryCard.h"
 #include "cocos2d.h"
 
 class MainLayer:public cocos2d::Layer
