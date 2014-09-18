@@ -87,8 +87,6 @@ void Card::turnBack()
     if (_bCover) {
         return;
     }
-    CCLOG("turnBack11");
-
     CallFunc* callF = CallFunc::create([this]{
         _spBg->setColor(Color3B(31,195,190));
         _spType->setVisible(false);

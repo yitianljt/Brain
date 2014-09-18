@@ -36,6 +36,7 @@ bool MemoryCard::init()
     _btnStart->setPreferredSize(spBtn->getPreferredSize());
     _btnStart->addTargetWithActionForControlEvents(this,cccontrol_selector(MemoryCard::click), cocos2d::extension::Control::EventType::TOUCH_UP_INSIDE);
     _btnStart->setTag(kButtonTagStart);
+    _btnStart->setVisible(false);
     _btnStart->setPosition(Point(COMWinSize().width/2,200));
     addChild(_btnStart);
     return true;
@@ -77,11 +78,15 @@ void MemoryCard::newRound()
     int iStartY = COMWinSize().height/2-100;
     Point ptStart = Point(iStartX,iStartY);
 
+    random_shuffle(_vecCard->begin(), _vecCard->end());
+    
     for (int i=0;i<_vecCard->size();i++)
     {
         Card* card = _vecCard->at(i);
         card->setPosition(ptStart+Point((i%iRow)*iGap,(i/iRow)*iGap));
     }
+    _btnStart->setVisible(true);
+
 }
 
 void MemoryCard::click(cocos2d::Ref* pSender, cocos2d::extension::Control::EventType event)
@@ -108,6 +113,17 @@ void MemoryCard::clickCard(cocos2d::Ref* pSender)
     if (_vecOpenCard->size()>0) {
         Card* oldCard = _vecOpenCard->at(_vecOpenCard->size()-1);
         if (newCard->getType() == oldCard->getType()) {
+            
+            for (vector<Card*>::iterator it = _vecCard->begin(); it!=_vecCard->end(); ) {
+                if((Card*)*it == newCard || (Card*)*it == oldCard)
+                {
+                    it = _vecCard->erase(it);
+                }
+                else
+                {
+                    it++;
+                }
+            }
             oldCard->showOut([]{});
             newCard->showOut([]{});
             _vecOpenCard->clear();
@@ -117,6 +133,12 @@ void MemoryCard::clickCard(cocos2d::Ref* pSender)
             _vecOpenCard->pop_back();
             oldCard->turnBack();
             newCard->turnBack();
+        }
+        
+        CCLOG("_vecCard->size()=%lu",_vecCard->size());
+        
+        if (_vecCard->size() == 0) {
+            this->runAction(Sequence::create(DelayTime::create(0.3),CallFunc::create([this]{newRound();}), nullptr));
         }
     }
     else
