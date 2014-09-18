@@ -23,11 +23,14 @@ public:
     virtual bool init(int type);
     virtual void onEnter();
     virtual void onExit();
+    void turnBack();
+    void turnFront();
     CC_SYNTHESIZE(int, _pos, Pos);
+    CC_SYNTHESIZE(bool,_enableClick,EnableClick);
 
     //    typedef void (Ref::*Handler)(Ref*, EventType);
 private:
-    void flipCard(bool bCover);
+    void flipCard();
     void clickButton(cocos2d::Ref* pSender, cocos2d::extension::Control::EventType event);
 
     cocos2d::extension::Scale9Sprite* _spBg;

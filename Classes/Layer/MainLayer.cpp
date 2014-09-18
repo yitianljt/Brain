@@ -18,17 +18,14 @@ bool MainLayer::init()
     if (!Layer::init()) {
         return false;
     }
-    LayerColor* layerBg = LayerColor::create(Color4B(100,0,0,255), COMWinSize().width, COMWinSize().height);
+    LayerColor* layerBg = LayerColor::create(Color4B(233,233,233,255), COMWinSize().width, COMWinSize().height);
     addChild(layerBg);
     
     MemoryCard* layerMemory = MemoryCard::create();
     addChild(layerMemory);
     
     
-//    Card* card = Card::create(2);
-//    card->setPosition(Point(100,202));
-//    card->setScale(0.5);
-//    this->addChild(card);
+
     
 //    MainBarLayer* bar = MainBarLayer::create();
 //    addChild(bar);

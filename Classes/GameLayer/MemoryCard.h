@@ -21,6 +21,8 @@ public:
     
 private:
     void newRound();
+    void click(cocos2d::Ref* pSender, cocos2d::extension::Control::EventType event);
+    void setCardEnable(bool able);
     
     std::vector<Card*> *_vecCard;
     int  _level;

@@ -34,6 +34,7 @@ bool Card::init(int iType)
         return false;
     }
     _bCover = false;
+    setEnableClick(false);
     _spBg = Scale9Sprite::create("image/btn_bg.png");
     __String* str = __String::createWithFormat("image/dc_m_%d.png",iType);
     _spType = Scale9Sprite::create(str->getCString());
@@ -51,41 +52,24 @@ bool Card::init(int iType)
 }
 
 
-void Card::flipCard(bool bCover)
+void Card::flipCard()
 {
     if (_bCover) {
-        CallFunc* callF = CallFunc::create([this]{
-            CCLOG("-111");
-            _spBg->setColor(Color3B(255,255,255));
-            _spType->setVisible(true);
-            _spType->setColor(Color3B(31,195,190));
-            _button->runAction(ScaleTo::create(0.15, 1, 1));
-        });
-        
-        ScaleTo* scaleTo1 = ScaleTo::create(0.15, 0, 1);
-        _button->runAction(Sequence::create(scaleTo1,callF,CallFunc::create([this]{_bCover=false;}),nullptr));
+        turnFront();
     }
     else
     {
-        CallFunc* callF = CallFunc::create([this]{
-            CCLOG("-1");
-            _spBg->setColor(Color3B(31,195,190));
-            _spType->setVisible(false);
-            _button->runAction(ScaleTo::create(0.15, 1, 1));
-
-        });
-        
-        ScaleTo* scaleTo1 = ScaleTo::create(0.15, 0, 1);
-        _button->runAction(Sequence::create(scaleTo1,callF,CallFunc::create([this]{_bCover=true;}),nullptr));
+        turnBack();
     }
-    
-    
 }
 
 void Card::clickButton(Ref* pSender, Control::EventType event)
 {
     CCLOG("clickButton");
-    flipCard(_bCover);
+    if (!getEnableClick()) {
+        return;
+    }
+    flipCard();
 }
 
 
@@ -97,5 +81,37 @@ void Card::onEnter()
 void Card::onExit()
 {
     Node::onExit();
+}
+
+void Card::turnBack()
+{
+    if (_bCover) {
+        return;
+    }
+    CallFunc* callF = CallFunc::create([this]{
+        _spBg->setColor(Color3B(31,195,190));
+        _spType->setVisible(false);
+        _button->runAction(ScaleTo::create(0.15, 1, 1));
+        
+    });
+    
+    ScaleTo* scaleTo1 = ScaleTo::create(0.15, 0, 1);
+    _button->runAction(Sequence::create(scaleTo1,callF,CallFunc::create([this]{_bCover=true;}),nullptr));
+}
+
+void Card::turnFront()
+{
+    if (!_bCover) {
+        return;
+    }
+    CallFunc* callF = CallFunc::create([this]{
+        _spBg->setColor(Color3B(255,255,255));
+        _spType->setVisible(true);
+        _spType->setColor(Color3B(31,195,190));
+        _button->runAction(ScaleTo::create(0.15, 1, 1));
+    });
+    
+    ScaleTo* scaleTo1 = ScaleTo::create(0.15, 0, 1);
+    _button->runAction(Sequence::create(scaleTo1,callF,CallFunc::create([this]{_bCover=false;}),nullptr));
 }
 

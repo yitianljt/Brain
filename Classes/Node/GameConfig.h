@@ -9,6 +9,8 @@
 #ifndef Brain_GameConfig_h
 #define Brain_GameConfig_h
 
+
+#define COM_COLOR Color3B(31,195,190)
 enum EGameState{
     NONE,
     LOGINERROR,
@@ -35,6 +37,8 @@ enum MemCardType{
     SQUARE,
     PENTAGON
 };
+
+
 
 
 
