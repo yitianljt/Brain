@@ -72,6 +72,8 @@
 		A903AAC019C87158007C2487 /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A903AABE19C87158007C2487 /* Player.cpp */; };
 		A9CF96D819C92C1300BA5951 /* MemoryCard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9CF96D619C92C1200BA5951 /* MemoryCard.cpp */; };
 		A9CF96DF19C93C0500BA5951 /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9CF96DD19C93C0500BA5951 /* Card.cpp */; };
+		A9CF96F619CBFF3600BA5951 /* PlayerInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9CF96F419CBFF3600BA5951 /* PlayerInfo.cpp */; };
+		A9CF970B19CC0F3C00BA5951 /* CaptureManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9CF970919CC0F3C00BA5951 /* CaptureManager.mm */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -290,6 +292,10 @@
 		A9CF96D719C92C1200BA5951 /* MemoryCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MemoryCard.h; path = ../Classes/GameLayer/MemoryCard.h; sourceTree = "<group>"; };
 		A9CF96DD19C93C0500BA5951 /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Card.cpp; path = ../Classes/Node/Card.cpp; sourceTree = "<group>"; };
 		A9CF96DE19C93C0500BA5951 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Card.h; path = ../Classes/Node/Card.h; sourceTree = "<group>"; };
+		A9CF96F419CBFF3600BA5951 /* PlayerInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PlayerInfo.cpp; path = ../Classes/Layer/PlayerInfo.cpp; sourceTree = "<group>"; };
+		A9CF96F519CBFF3600BA5951 /* PlayerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerInfo.h; path = ../Classes/Layer/PlayerInfo.h; sourceTree = "<group>"; };
+		A9CF970919CC0F3C00BA5951 /* CaptureManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CaptureManager.mm; path = ../Classes/Capture/CaptureManager.mm; sourceTree = "<group>"; };
+		A9CF970A19CC0F3C00BA5951 /* CaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CaptureManager.h; path = ../Classes/Capture/CaptureManager.h; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -366,6 +372,7 @@
 		15AA9C4015B7EC450033D6C2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A9CF970619CC0F0400BA5951 /* Capture */,
 				A9CF96D319C92B4700BA5951 /* GameLayer */,
 				A903AAAE19C822BC007C2487 /* Util */,
 				A903AAA519C80D3E007C2487 /* Layer */,
@@ -523,6 +530,8 @@
 				A903AAB519C825DE007C2487 /* MainBarLayer.h */,
 				A903AABB19C83BE4007C2487 /* HomeLayer.cpp */,
 				A903AABC19C83BE4007C2487 /* HomeLayer.h */,
+				A9CF96F419CBFF3600BA5951 /* PlayerInfo.cpp */,
+				A9CF96F519CBFF3600BA5951 /* PlayerInfo.h */,
 			);
 			name = Layer;
 			sourceTree = "<group>";
@@ -543,6 +552,15 @@
 				A9CF96D719C92C1200BA5951 /* MemoryCard.h */,
 			);
 			name = GameLayer;
+			sourceTree = "<group>";
+		};
+		A9CF970619CC0F0400BA5951 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				A9CF970919CC0F3C00BA5951 /* CaptureManager.mm */,
+				A9CF970A19CC0F3C00BA5951 /* CaptureManager.h */,
+			);
+			name = Capture;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -752,6 +770,8 @@
 			files = (
 				A9CF96D819C92C1300BA5951 /* MemoryCard.cpp in Sources */,
 				A903AAB619C825DE007C2487 /* MainBarLayer.cpp in Sources */,
+				A9CF970B19CC0F3C00BA5951 /* CaptureManager.mm in Sources */,
+				A9CF96F619CBFF3600BA5951 /* PlayerInfo.cpp in Sources */,
 				A903AAB319C82365007C2487 /* ComUtil.cpp in Sources */,
 				A903AAAB19C81E69007C2487 /* MainLayer.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
