@@ -22,6 +22,10 @@ public:
     virtual void onExit();
     
 private:
+    void onClick(cocos2d::Ref*, cocos2d::extension::Control::EventType);
+    cocos2d::LayerColor* _layerBg;
+    cocos2d::extension::ControlButton* _btnChallenge;
+    
     
 };
 

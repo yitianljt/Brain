@@ -8,6 +8,7 @@
 
 #include "GameManager.h"
 #include "MainLayer.h"
+#include "MemoryCard.h"
 
 
 USING_NS_CC;
@@ -61,7 +62,9 @@ void GameManager::changeScene(EGameScene gs)
         }
         case EGameScene::GAMELAYER:
         {
-
+            MemoryCard* layer = MemoryCard::create();
+            scene->addChild(layer);
+            Director::getInstance()->replaceScene(scene);
             break;
         }
         case EGameScene::WELCOME:

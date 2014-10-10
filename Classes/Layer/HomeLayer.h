@@ -11,6 +11,8 @@
 
 #include <iostream>
 #include "cocos2d.h"
+#include "cocos-ext.h"
+#include "GameConfig.h"
 
 class HomeLayer:public cocos2d::Layer
 {

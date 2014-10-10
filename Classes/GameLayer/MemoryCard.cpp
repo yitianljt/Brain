@@ -21,13 +21,30 @@ enum {
     kButtonTagStart
 };
 
+enum{
+    kCoverZorder=10,
+    kCountDownZorder
+};
+
 
 bool MemoryCard::init()
 {
     if (!Layer::init()) {
         return false;
     }
+    _isCountDown = true;
+    _gameStatus = WAITSTART;
+    _count = 3;
     _level = 1;
+    
+    LayerColor* layerBg = LayerColor::create(Color4B(233,233,233,255), COMWinSize().width, COMWinSize().height);
+    this->addChild(layerBg);
+
+    _labelCount = LabelTTF::create("", "黑体", 68);
+    _labelCount->setPosition(Point(COMWinSize().width/2,COMWinSize().height-_labelCount->getContentSize().height));
+    //_labelCount->setVisible(false);
+    this->addChild(_labelCount,kCountDownZorder);
+    
     _vecCard = new vector<Card*>();
     _vecOpenCard = new vector<Card*>();
     Scale9Sprite* spBtn = Scale9Sprite::create("image/btn_start.png");
@@ -39,6 +56,10 @@ bool MemoryCard::init()
     _btnStart->setVisible(false);
     _btnStart->setPosition(Point(COMWinSize().width/2,200));
     addChild(_btnStart);
+    
+    _coverLayer = LayerColor::create(Color4B(100,100,100,160), COMWinSize().width, COMWinSize().height);
+    this->addChild(_coverLayer,kCoverZorder);
+    schedule(schedule_selector(MemoryCard::updateCount), 1.0);
     return true;
 }
 
@@ -52,8 +73,30 @@ void MemoryCard::onExit()
     Layer::onExit();
 }
 
+void MemoryCard::updateCount(float ft)
+{
+    if (_gameStatus==WAITSTART &&_count>=0) {
+        _labelCount->setString(__String::createWithFormat("%d",_count)->getCString());
+        _count--;
+    }
+    else if(_gameStatus==WAITSTART && _count<0)
+    {
+        _coverLayer->setVisible(false);
+        _count = 30;
+        _labelCount->setString(__String::createWithFormat("%d",_count)->getCString());
+        _gameStatus = PLAYGAME;
+    }
+    else if(_gameStatus==PLAYGAME && _count>0)
+    {
+        _count--;
+        _labelCount->setString(__String::createWithFormat("%d",_count)->getCString());
+    }
+    
+}
+
 void MemoryCard::newRound()
 {
+    _labelCount->setVisible(true);
     if (_vecCard && _vecCard->size()>0) {
         for (vector<Card*>::iterator it=_vecCard->begin(); it!=_vecCard->end();){
             ((Card*)(&it))->removeFromParent();

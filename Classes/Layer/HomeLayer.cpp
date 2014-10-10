@@ -10,13 +10,16 @@
 
 
 USING_NS_CC;
+USING_NS_CC_EXT;
 
 bool HomeLayer::init()
 {
     if (!Layer::init()) {
         return false;
     }
-    //直方图
+    //
+    
+
     
     
     return true;
